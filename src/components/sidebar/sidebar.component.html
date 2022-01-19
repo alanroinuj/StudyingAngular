@@ -1,10 +1,13 @@
-<div class="sidebar">
+<div class="sidebar" #isActive>
   <div class="logo_content">
     <div class="logo">
       <mat-icon>grade</mat-icon>
       <div class="logo_name">MyApp</div>
     </div>
-      <mat-icon id="btnSidebar">menu</mat-icon>
+    <button id="btnSidebar" (click)="openMenu()">
+      <mat-icon>menu</mat-icon>
+    </button>
+
   </div>
   <ul class="nav_list">
     <li>
@@ -58,11 +61,13 @@
           <div class="name">Novo Agente</div>
           <div class="job">Web Designer</div>
         </div>
-        <mat-icon #log_out>logout</mat-icon>
       </div>
+      <mat-icon #log_out>logout</mat-icon>
     </div>
   </div>
 </div>
 <div class="home_content">
-  <div class="text">Home Content</div>
+  <div class="text">Home Content
+
+  </div>
 </div>
