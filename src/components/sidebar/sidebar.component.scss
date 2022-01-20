@@ -1,3 +1,16 @@
+mat-toolbar{
+  position: relative;
+  background: #11101d;
+  color: #fff;
+  width: calc(100% - 78px);
+  left: 78px;
+  transition: all 0.5s ease;
+}
+.sidebar.isActive ~ mat-toolbar{
+  width: calc(100% - 240px);
+  left: 240px;
+}
+
 .sidebar{
   position: fixed;
   top: 0;
@@ -49,7 +62,8 @@
 
     #btnSidebar{
       position: absolute;
-      color: #11101d;
+      background: #1d1b31;
+      color: #fff;
       top: 6px;
       left: 50%;
       font-size: 20px;
@@ -61,6 +75,12 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      border: none;
+      border-radius: 5px;
+      &:hover{
+        background: #fff;
+        color: #11101d;
+      }
     }
   }
 
@@ -212,11 +232,17 @@
 
 }
 
-.home_content{
-  position: absolute;
-  height: 100%;
+.sidebar.isActive ~ .home_content{
   width: calc(100% - 240px);
   left: 240px;
+}
+
+.home_content{
+  position: relative;
+  height: 100%;
+  width: calc(100% - 78px);
+  left: 78px;
+  transition: all 0.5s ease;
 
   .text{
     font-size: 25px;

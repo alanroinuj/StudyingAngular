@@ -11,14 +11,14 @@
   </div>
   <ul class="nav_list">
     <li>
-      <a href="#">
+      <a routerLink="/">
         <mat-icon class="mat-18">grid_view</mat-icon>
         <span class="links_name">Dashboard</span>
       </a>
       <span class="tooltip">Dashboard</span>
     </li>
     <li>
-      <a href="#">
+      <a routerLink="/chamados">
         <mat-icon class="mat-18">support_agent</mat-icon>
         <span class="links_name">Chamado</span>
       </a>
@@ -39,7 +39,7 @@
       <span class="tooltip">Contatos</span>
     </li>
     <li>
-      <a href="#">
+      <a routerLink="/user">
         <mat-icon class="mat-18">people</mat-icon>
         <span class="links_name">Usuários</span>
       </a>
@@ -66,8 +66,12 @@
     </div>
   </div>
 </div>
-<div class="home_content">
-  <div class="text">Home Content
 
-  </div>
+<mat-toolbar>
+  <span>Titulo Page</span>
+  <span class="example-spacer"></span>
+</mat-toolbar>
+
+<div class="home_content">
+  <router-outlet></router-outlet>
 </div>
