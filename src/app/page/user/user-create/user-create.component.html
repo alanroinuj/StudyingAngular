@@ -1,0 +1,14 @@
+<mat-card>
+  <form action="">
+    <!--input-component label="Ativo" type="checkbox"></!--input-component-->
+    <input-component label="Nome"></input-component>
+    <input-component label="E-mail"></input-component>
+    <input-component label="Senha" type="password"></input-component>
+    <input-component label="Confirma Senha" type="password"></input-component>
+ </form>
+ <button mat-raised-button color="success" (click)="createUser()">
+   <mat-icon>save</mat-icon>Salvar
+ </button>
+ <button mat-raised-button color="warn">Cancelar</button>
+</mat-card>
+

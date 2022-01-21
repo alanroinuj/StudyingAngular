@@ -18,7 +18,7 @@
       <span class="tooltip">Dashboard</span>
     </li>
     <li>
-      <a routerLink="/chamados">
+      <a routerLink="/tickets">
         <mat-icon class="mat-18">support_agent</mat-icon>
         <span class="links_name">Chamado</span>
       </a>
@@ -39,7 +39,7 @@
       <span class="tooltip">Contatos</span>
     </li>
     <li>
-      <a routerLink="/user">
+      <a routerLink="/users">
         <mat-icon class="mat-18">people</mat-icon>
         <span class="links_name">Usuários</span>
       </a>
@@ -47,7 +47,7 @@
     </li>
     <li>
       <a href="#">
-        <mat-icon class="mat-18">settings</mat-icon>
+        <mat-icon class="iconSettings">settings</mat-icon>
         <span class="links_name">Configurações</span>
       </a>
       <span class="tooltip">Configurações</span>
@@ -68,7 +68,7 @@
 </div>
 
 <mat-toolbar>
-  <span>Titulo Page</span>
+  <span>{{ title }}</span>
   <span class="example-spacer"></span>
 </mat-toolbar>
 

@@ -1,20 +1,20 @@
 <div class="container">
   <mat-card>
     <div class="cardContainer">
-      <div class="headerTicket">
-        <span class="chipSituation">Novo</span>
-        <mat-card-title>Descrição chamado #0000</mat-card-title>
+      <div class="descriptionTicket">
+        <div class="headerTicket">
+          <span class="chipSituation">Novo</span>
+          <mat-card-title>Descrição chamado #0000</mat-card-title>
+        </div>
       </div>
-          <div class="propsTicket">
-            <div>
-              <span></span>
-              <select name="" id="">
-                <option>Baixa</option>
-                <option>Média</option>
-                <option>Alta</option>
-                <option>Urgente</option>
-              </select>
-            </div>
+      <div class="optionCard">
+        <div>
+          <ul>
+            <li *ngFor="let prioridade of prioridades">
+              {{prioridade}}
+            </li>
+          </ul>
+        </div>
             <div>
               <select name="" id="">
                 <option>Alan Junior</option>
@@ -31,13 +31,7 @@
                   <option>Fechado</option>
                 </select>
             </div>
-          </div>
-        <div><input type="checkbox" name="" id=""></div>
+      </div>
     </div>
-            <div class="otherOptions">
-              <h2>Nome do usuário</h2>
-              <p>Criado há 10 dias</p>
-              <p>Venceu há 8 dias</p>
-            </div>
   </mat-card>
 </div>

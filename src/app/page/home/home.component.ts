@@ -1,5 +1,6 @@
-import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import {  Chart, BarElement, BarController, CategoryScale, Decimation, Filler, Legend, Title, Tooltip, LinearScale, LineController } from 'chart.js';
+import { SidebarService } from './../../../components/sidebar/sidebar.service';
 
 @Component({
   selector: 'app-home',
@@ -8,9 +9,14 @@ import {  Chart, BarElement, BarController, CategoryScale, Decimation, Filler, L
 })
 export class HomeComponent implements OnInit {
   @ViewChild('meuCanvas', { static: true }) element!: ElementRef;
-  @ViewChild('meuCanvas2', { static: true }) element2!: ElementRef;
-  constructor() {
+  constructor(private sidebarService: SidebarService) {
     Chart.register(BarElement, BarController, CategoryScale, LinearScale, LineController, Decimation, Filler, Legend, Title, Tooltip);
+
+    this.sidebarService.titleHeader={
+      title: 'Dashboard',
+      routerUrl: '/'
+    }
+
   }
 
   ngOnInit() {

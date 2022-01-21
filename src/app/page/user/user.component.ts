@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { SidebarService } from 'src/components/sidebar/sidebar.service';
 
 @Component({
   selector: 'app-user',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router, private sidebarService: SidebarService) {
+    this.sidebarService.titleHeader = {
+      title: 'Usuários',
+      routerUrl: '/users'
+    }
+  }
 
   ngOnInit(): void {
+  }
+
+  navegateToUserCreate(){
+    this.router.navigate(['/users/create']);
   }
 
 }

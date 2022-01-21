@@ -9,12 +9,16 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
-import { MatGridListModule } from '@angular/material/grid-list';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { InputComponent } from './input/input.component'
+
 
 @NgModule({
   declarations: [
     HeaderComponent,
     SidebarComponent,
+    InputComponent,
   ],
   imports: [
     CommonModule,
@@ -22,14 +26,18 @@ import { MatGridListModule } from '@angular/material/grid-list';
     MatSidenavModule,
     MatIconModule,
     MatCardModule,
-    MatGridListModule,
+    MatButtonModule,
+    MatSnackBarModule,
     RouterModule,
   ],
   exports: [
     HeaderComponent,
     SidebarComponent,
+    InputComponent,
     MatCardModule,
-    MatGridListModule
+    MatButtonModule,
+    MatIconModule,
+    MatSnackBarModule
   ]
 })
 export class SharedModule { }

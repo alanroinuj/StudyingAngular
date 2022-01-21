@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { SidebarService } from 'src/components/sidebar/sidebar.service';
 
 @Component({
   selector: 'app-ticket',
@@ -8,7 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TicketComponent implements OnInit {
 
-  constructor() { }
+  prioridades: string [] = ["Baixa", "Média", "Alta", "Urgente"];
+
+  constructor(private sidebarSidebar: SidebarService) {
+    this.sidebarSidebar.titleHeader = {
+      title: 'Chamados',
+      routerUrl: '/tickets'
+    }
+  }
 
   ngOnInit(): void {
   }
