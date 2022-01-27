@@ -3,6 +3,7 @@ export interface IUser{
   name: string;
   email: string;
   password: string;
+  passConfirm: string;
   active: boolean;
   dataAtCreate?: string;
 }

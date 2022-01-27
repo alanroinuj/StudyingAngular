@@ -20,6 +20,7 @@ mat-toolbar{
   background: #11101d;
   padding: 6px 14px;
   transition: all 0.5s ease;
+  z-index: 9999;
 
   &.isActive{
     width: 240px;

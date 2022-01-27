@@ -1,8 +1,11 @@
-import { IUser } from './../../../utils/models/user.model';
+import { Component, OnInit, forwardRef } from '@angular/core';
+import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+
+import { IUser } from './../../../utils/models/user.model';
 import { SidebarService } from 'src/components/sidebar/sidebar.service';
 import { UserService } from '../user.service';
+import { InputComponent } from 'src/components/input/input.component';
 
 @Component({
   selector: 'app-user-create',
@@ -11,10 +14,12 @@ import { UserService } from '../user.service';
 })
 export class UserCreateComponent implements OnInit {
 
+
   user: IUser = {
     name: '',
     email: '',
     password: '',
+    passConfirm: '',
     active: true
   }
 
@@ -29,7 +34,11 @@ export class UserCreateComponent implements OnInit {
     };
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
+
+  onSubmit(form: any){
+    console.log(form);
+  }
 
   createUser() {
     this.userService.createUser(this.user).subscribe(() => {

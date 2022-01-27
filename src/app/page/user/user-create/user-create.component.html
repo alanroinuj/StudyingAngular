@@ -1,12 +1,20 @@
 <mat-card>
-  <form action="">
-    <!--input-component label="Ativo" type="checkbox"></!--input-component-->
-    <input-component label="Nome"></input-component>
-    <input-component label="E-mail"></input-component>
-    <input-component label="Senha" type="password"></input-component>
-    <input-component label="Confirma Senha" type="password"></input-component>
+  {{f.valid}}
+  {{f.value | json}}
+  <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+    <!--input-component label="Ativo" type="checkbox"><input-component-->
+    <!--<input-component label="Nome" [(ngModel)]="user.name" [name]="user.name"></input-component>
+    <input-component label="E-mail"  ngModel name="email"></input-component>
+    <input-component-- label="Senha" type="password"  ngModel name="password"></input-component-->
+    <input-component label="Confirma Senha" name="passConfirm" [(ngModel)]="user.passConfirm">
+    <!--input  name="passConfirm" ngModel required minlength="4" autocomplete="off"/-->
+    </input-component>
+    <input type="text" ngModel required name="nome">
+    <input type="email" ngModel required name="email">
+    <input type="password" ngModel required name="password" autocomplete="new-password">
+    <input type="password" ngModel required name="passConfirm">
  </form>
- <button mat-raised-button color="success" (click)="createUser()">
+ <button type="submit" mat-raised-button color="success" (click)="createUser()">
    <mat-icon>save</mat-icon>Salvar
  </button>
  <button mat-raised-button color="warn">Cancelar</button>
