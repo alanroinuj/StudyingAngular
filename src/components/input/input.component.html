@@ -1,6 +1,8 @@
-<div class="form-field" #variavelqlq>
-  <label [ngClass]="focused ? 'label-focused' : ''">{{label}}</label>
-  <input (focus)="focused = true" (blur)="onBlur($event)" [value]="jsonString" (change)="onChange($event)"/>
-  <!--ng-content></-ng-content-->
-   <span>{{errorMessage}}</span>
+<div class="form-field">
+  <label [ngClass]="focused ? 'label-focused' : ''">{{ label }}</label>
+  <input (focus)="focused = true" (blur)="onBlur($event)" [(ngModel)]="value" #input="ngModel"/>
+  <div class="errorValidation" *ngIf="!input.value && input.touched">
+    <mat-icon>info</mat-icon>
+    <span class="tooltipValition" #tooltip>{{errorMessage}}</span>
+    </div>
 </div>
