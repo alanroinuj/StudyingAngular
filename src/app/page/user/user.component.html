@@ -1,4 +1,36 @@
-<button mat-fab color="primary" (click)="navegateToUserCreate()">
+<button class="btnCreateUser" mat-fab color="primary" (click)="navegateToUserCreate()">
   <mat-icon>add</mat-icon>
 </button>
+
+<mat-card>
+ <table>
+   <thead>
+     <tr>
+      <th>Código</th>
+      <th>Nome</th>
+      <th>E-mail</th>
+      <th>Ativo</th>
+      <th>Criado em</th>
+      <th>Ações</th>
+     </tr>
+   </thead>
+   <tbody>
+     <tr *ngFor="let user of users">
+       <td>{{user.id}}</td>
+       <td>{{user.name}}</td>
+       <td>{{user.email}}</td>
+       <td [ngClass]="user.active ? 'statusActive' : 'statusInative'">{{isStatusActive(user)}}</td>
+       <td>{{user.dateAtCreate}}</td>
+       <td>
+         <a [routerLink]="['/create']">
+           <mat-icon>edit</mat-icon>
+         </a>
+         <a>
+          <mat-icon>delete</mat-icon>
+        </a>
+       </td>
+     </tr>
+   </tbody>
+ </table>
+</mat-card>
 

@@ -1,0 +1,60 @@
+
+.btnCreateUser{
+  margin-bottom: 10px;
+}
+mat-card{
+  table{
+    border-collapse: collapse;
+    box-shadow: 0 0 2px 0px rgba(0, 183, 206, 0.2);
+    background-color: white;
+    text-align: left;
+    overflow: hidden;
+    min-width: 100%;
+
+    thead{
+      box-shadow: 0 5px 5px #e1e5ee;
+    }
+
+    th{
+      padding: 1rem 2rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1rem;
+      font-size: 0.7rem;
+      font-weight: 900;
+    }
+
+    tbody{
+      tr {
+        transition: all 0.4s ease;
+
+          &:hover{
+            transform: scale(1.01);
+
+          }
+      }
+
+    }
+
+    td{
+      padding: 1rem 2rem;
+    }
+
+    .statusActive{
+      color: #388e3c;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .statusInative{
+      color: #c62828;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f4f6fb;
+    }
+  }
+
+}
+

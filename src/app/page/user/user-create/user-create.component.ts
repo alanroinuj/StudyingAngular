@@ -1,11 +1,10 @@
-import { Component, OnInit, forwardRef } from '@angular/core';
-import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { IUser } from './../../../utils/models/user.model';
 import { SidebarService } from 'src/components/sidebar/sidebar.service';
 import { UserService } from '../user.service';
-import { InputComponent } from 'src/components/input/input.component';
+
 
 @Component({
   selector: 'app-user-create',

@@ -3,13 +3,14 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  baseUrl = "http://localhost:3001/users";
+  private readonly API = `${environment.API}users`
 
   constructor(private snackBar: MatSnackBar, private http: HttpClient) { }
 
@@ -23,6 +24,10 @@ export class UserService {
   }
 
   createUser(user: IUser): Observable<IUser>{
-    return this.http.post<IUser>(this.baseUrl, user)
+    return this.http.post<IUser>(this.API, user);
+  }
+
+  readUser(): Observable<IUser[]>{
+    return this.http.get<IUser[]>(this.API);
   }
 }

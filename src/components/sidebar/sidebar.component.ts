@@ -23,6 +23,7 @@ export class SidebarComponent implements OnInit {
 
   }
 
+  //Altera o titulo do cabelho conforme a rota
   get title(): string{
     return this.sidebarService.titleHeader.title;
   }

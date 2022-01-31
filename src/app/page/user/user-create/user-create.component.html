@@ -3,7 +3,6 @@
   {{f.value | json}}
 <br/>
   <form #f="ngForm" (ngSubmit)="onSubmit(f)">
-    <!--input-component label="Ativo" type="checkbox"><input-component-->
     <input-component
       label="Nome"
       [(ngModel)]="user.name"
