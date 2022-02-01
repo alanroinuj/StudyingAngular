@@ -2,7 +2,7 @@
   <mat-icon>add</mat-icon>
 </button>
 
-<mat-card>
+<mat-card  style="overflow-x:auto;">
  <table>
    <thead>
      <tr>
@@ -15,17 +15,17 @@
      </tr>
    </thead>
    <tbody>
-     <tr *ngFor="let user of users">
+     <tr *ngFor="let user of users" (dblclick)="doubleClick(user)">
        <td>{{user.id}}</td>
        <td>{{user.name}}</td>
        <td>{{user.email}}</td>
        <td [ngClass]="user.active ? 'statusActive' : 'statusInative'">{{isStatusActive(user)}}</td>
        <td>{{user.dateAtCreate}}</td>
        <td>
-         <a [routerLink]="['/create']">
+         <a routerLink="update/{{user.id}}">
            <mat-icon>edit</mat-icon>
          </a>
-         <a>
+         <a (click)="deleteUser(user)">
           <mat-icon>delete</mat-icon>
         </a>
        </td>

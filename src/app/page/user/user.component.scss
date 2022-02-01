@@ -5,7 +5,8 @@
 mat-card{
   table{
     border-collapse: collapse;
-    box-shadow: 0 0 2px 0px rgba(0, 183, 206, 0.2);
+    box-shadow: 0 0 2px 2px rgba(0, 183, 206, 0.2);
+    border-radius: 10px;
     background-color: white;
     text-align: left;
     overflow: hidden;
@@ -58,3 +59,8 @@ mat-card{
 
 }
 
+@media only screen and (min-width: 980px) {
+  mat-card{
+    overflow-x:auto;
+  }
+}

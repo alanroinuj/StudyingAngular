@@ -18,8 +18,9 @@ export class InputComponent implements ControlValueAccessor {
   @Input() focused?: boolean;
   @Input() label?: string;
   @Input() errorMessage?: string;
-  @Input() type?: 'text' | 'password' | 'checkbox' | 'email';
+  @Input() type?: 'text' | 'password' | 'email' | 'date';
   @Input() control?: any;
+  @Input() email?: boolean;
 
   private innerValue: any;
   get value() {

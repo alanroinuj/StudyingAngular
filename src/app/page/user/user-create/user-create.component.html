@@ -1,8 +1,7 @@
 <mat-card>
-  {{f.valid}}
-  {{f.value | json}}
 <br/>
   <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+    <switch-component></switch-component>
     <input-component
       label="Nome"
       [(ngModel)]="user.name"
@@ -15,27 +14,30 @@
       [(ngModel)]="user.email"
       type="email"
       required
+      [email]="true"
       ngModel
       name="email"
       errorMessage="O campo E-mail dever ser válido"
     ></input-component>
     <input-component
       label="Senha"
-      [(ngModel)]="user.password"
+      name="password"
       type="password"
+      [(ngModel)]="user.password"
       required
       ngModel
-      name="password"
       errorMessage="O campo Senha é obrigatório!"
     ></input-component>
     <input-component
       label="Confirma Senha"
-      [(ngModel)]="user.passConfirm"
-      required
       name="passConfirm"
       type="password"
+      [(ngModel)]="user.passConfirm"
+      required
+      ngModel
       errorMessage="As senhas devem ser iguais!"
     ></input-component>
+    <input-component name="dateAtCreate" [(ngModel)]="user.dateAtCreate" type="date"></input-component>
   </form>
   <button
     type="submit"
@@ -45,5 +47,5 @@
   >
     <mat-icon>save</mat-icon>Salvar
   </button>
-  <button mat-raised-button color="warn">Cancelar</button>
+  <button mat-raised-button color="warn" (click)="cancel()">Cancelar</button>
 </mat-card>

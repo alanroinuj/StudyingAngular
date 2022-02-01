@@ -1,6 +1,7 @@
 <div class="form-field">
-  <label [ngClass]="focused ? 'label-focused' : ''">{{ label }}</label>
-  <input (focus)="focused = true" (blur)="onBlur($event)" [(ngModel)]="value" #input="ngModel"/>
+  <label [ngClass]="focused ? 'label-focused' : ''"
+        [class.label-focused]="input.value">{{ label }}</label>
+  <input (focus)="focused = true" [type]="type" (blur)="onBlur($event)" [(ngModel)]="value" #input="ngModel" autocomplete="off"/>
   <div class="errorValidation" *ngIf="!input.value && input.touched">
     <mat-icon>info</mat-icon>
     <span class="tooltipValition" #tooltip>{{errorMessage}}</span>

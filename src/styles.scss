@@ -22,10 +22,12 @@ button{
   cursor: pointer;
 }
 
-.mat-snack-bar-container{
+.msgSucessSb{
   background-color: #74CC87;
   color: #fff;
-  span{
-    text-align: center;
-  }
 }
+.msgErrorSb{
+  background-color: #ce3535;
+  color: #fff;
+}
+
