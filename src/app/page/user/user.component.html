@@ -16,17 +16,17 @@
    </thead>
    <tbody>
      <tr *ngFor="let user of users" (dblclick)="doubleClick(user)">
-       <td>{{user.id}}</td>
-       <td>{{user.name}}</td>
-       <td>{{user.email}}</td>
-       <td [ngClass]="user.active ? 'statusActive' : 'statusInative'">{{isStatusActive(user)}}</td>
-       <td>{{user.dateAtCreate}}</td>
-       <td>
+       <td data-type="numeric">{{user.id}}</td>
+       <td data-type="text-long">{{user.name}}</td>
+       <td data-type="text-short">{{user.email}}</td>
+       <td data-type="text-short" [ngClass]="user.active ? 'statusActive' : 'statusInative'">{{isStatusActive(user)}}</td>
+       <td data-type="text-short">{{user.dateAtCreate}}</td>
+       <td data-type="text-short">
          <a routerLink="update/{{user.id}}">
-           <mat-icon>edit</mat-icon>
+           <mat-icon color="accent">edit</mat-icon>
          </a>
          <a (click)="deleteUser(user)">
-          <mat-icon>delete</mat-icon>
+          <mat-icon color="warn">delete</mat-icon>
         </a>
        </td>
      </tr>

@@ -37,7 +37,12 @@ mat-card{
     }
 
     td{
+
       padding: 1rem 2rem;
+      a{
+        margin-left: 1;
+        cursor: pointer;
+      }
     }
 
     .statusActive{

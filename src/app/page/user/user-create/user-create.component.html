@@ -1,25 +1,30 @@
 <mat-card>
-<br/>
+<strong>Informe os dados do usuário.</strong>
   <form #f="ngForm" (ngSubmit)="onSubmit(f)">
-    <switch-component></switch-component>
-    <input-component
-      label="Nome"
-      [(ngModel)]="user.name"
-      name="name"
-      required
-      errorMessage="O campo Nome é obrigatório!"
-    ></input-component>
-    <input-component
-      label="E-mail"
-      [(ngModel)]="user.email"
-      type="email"
-      required
-      [email]="true"
-      ngModel
-      name="email"
-      errorMessage="O campo E-mail dever ser válido"
-    ></input-component>
-    <input-component
+    <div class="rowHeader">
+      <switch-component label="Ativo"></switch-component>
+      <div class="col-500">
+        <input-component
+        label="Nome"
+        [(ngModel)]="user.name"
+        name="name"
+        required
+        errorMessage="O campo Nome é obrigatório!"
+        ></input-component>
+        <input-component
+        label="E-mail"
+        [(ngModel)]="user.email"
+        type="email"
+        required
+        [email]="true"
+        ngModel
+        name="email"
+        errorMessage="O campo E-mail dever ser válido"
+      ></input-component>
+      </div>
+    </div>
+    <div class="col-200">
+      <input-component
       label="Senha"
       name="password"
       type="password"
@@ -37,7 +42,8 @@
       ngModel
       errorMessage="As senhas devem ser iguais!"
     ></input-component>
-    <input-component name="dateAtCreate" [(ngModel)]="user.dateAtCreate" type="date"></input-component>
+    </div>
+    <label style="color: #ccc">{{ user.dateAtCreate | date: 'dd/MM/yyyy' }} </label>
   </form>
   <button
     type="submit"

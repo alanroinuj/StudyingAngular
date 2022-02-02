@@ -5,5 +5,5 @@ export interface IUser{
   password: string;
   passConfirm: string;
   active: boolean;
-  dateAtCreate?: string;
+  dateAtCreate?: any;
 }

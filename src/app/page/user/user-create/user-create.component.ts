@@ -20,7 +20,6 @@ export class UserCreateComponent implements OnInit {
     dateAtCreate: ''
   };
 
-  dataAtCreate = Date.now();
 
   constructor(
     private userService: UserService,
@@ -35,6 +34,7 @@ export class UserCreateComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.user.dateAtCreate = Date.now();
     const id = this.route.snapshot.paramMap.get('id');
     //verifica se tem ID antes de carregar a tela
     if(id){

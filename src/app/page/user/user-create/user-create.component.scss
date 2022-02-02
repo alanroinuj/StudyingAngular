@@ -1,0 +1,21 @@
+mat-card{
+  form{
+    label{
+      display: flex;
+      justify-content: flex-end;
+    }
+    .rowHeader{
+      width: 100%;
+
+      .col-500{
+        width: 500px;
+        display: flex;
+        flex-direction: column;
+      }
+    }
+
+    .col-200{
+      width: 200px;;
+    }
+  }
+}
