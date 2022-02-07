@@ -1,3 +1,4 @@
+import { TicketCreateComponent } from './page/ticket/ticket-create/ticket-create.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {  HttpClientModule } from '@angular/common/http';
@@ -20,7 +21,8 @@ import { UserCreateComponent } from './page/user/user-create/user-create.compone
     HomeComponent,
     UserComponent,
     TicketComponent,
-    UserCreateComponent
+    UserCreateComponent,
+    TicketCreateComponent
   ],
   imports: [
     BrowserModule,

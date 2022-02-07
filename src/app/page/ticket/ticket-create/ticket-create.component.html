@@ -1,0 +1,27 @@
+<header-component></header-component>
+
+<div class="container">
+  <form>
+    <input-component label="Assunto"></input-component>
+    <input-component label="Tipo"></input-component>
+    <input-component label="Status"></input-component>
+    <input-component label="Prioridade"></input-component>
+    <input-component label="Departamento"></input-component>
+    <input-component label="Analista"></input-component>
+    <input-component label="Assunto"></input-component>
+    <button
+      type="submit"
+      mat-raised-button
+      style="background-color: #161d34; color: #fff"
+    >
+      Salvar
+    </button>
+    <button
+      mat-raised-button
+      style="background-color: #fff; margin-left: 10px"
+      (click)="cancel()"
+    >
+      Cancelar
+    </button>
+  </form>
+</div>

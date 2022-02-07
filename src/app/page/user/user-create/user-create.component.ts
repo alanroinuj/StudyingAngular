@@ -48,6 +48,19 @@ export class UserCreateComponent implements OnInit {
     console.log(form);
   }
 
+  userSubmit(){
+    const id = this.route.snapshot.paramMap.get('id');
+    if(id){
+      this.userService.readByIdUser(id).subscribe((user) => {
+        this.user = user;
+      });
+      this.updateUser();
+    }else{
+      this.createUser();
+    }
+  }
+
+
   createUser() {
     this.userService.createUser(this.user).subscribe(() => {
       this.userService.showToast('Salvo com Sucesso!');

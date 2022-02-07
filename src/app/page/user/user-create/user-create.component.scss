@@ -1,5 +1,14 @@
-mat-card{
+.container{
+  padding: 20px;
+  height: 100vh;
+  background: #e1e5ee;
+
   form{
+    padding: 20px;
+    margin: none auto;
+    background: #f9fbff;
+    border-radius: 10px;
+
     label{
       display: flex;
       justify-content: flex-end;
@@ -8,14 +17,17 @@ mat-card{
       width: 100%;
 
       .col-500{
-        width: 500px;
+        //width: 500px;
         display: flex;
         flex-direction: column;
       }
     }
 
     .col-200{
-      width: 200px;;
+      width: 200px;
+      input{
+        width: 100%;
+      }
     }
   }
 }

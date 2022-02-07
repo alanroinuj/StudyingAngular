@@ -1,36 +1,50 @@
-<button class="btnCreateUser" mat-fab color="primary" (click)="navegateToUserCreate()">
-  <mat-icon>add</mat-icon>
-</button>
+<header-component></header-component>
 
-<mat-card  style="overflow-x:auto;">
+<div class="container" style="overflow-x:auto;">
  <table>
    <thead>
      <tr>
-      <th>Código</th>
-      <th>Nome</th>
-      <th>E-mail</th>
-      <th>Ativo</th>
-      <th>Criado em</th>
-      <th>Ações</th>
+      <th data-type="numeric">Código
+        <span class="resize-handle"></span>
+      </th>
+      <th data-type="text-short">Nome
+        <span class="resize-handle"></span>
+      </th>
+      <th data-type="text-short">E-mail
+        <span class="resize-handle"></span>
+      </th>
+      <th data-type="text-short">Status
+        <span class="resize-handle"></span>
+      </th>
+      <th data-type="text-short">Criado em
+        <span class="resize-handle"></span>
+      </th>
+      <th data-type="text-short">Ações
+      </th>
      </tr>
    </thead>
    <tbody>
-     <tr *ngFor="let user of users" (dblclick)="doubleClick(user)">
-       <td data-type="numeric">{{user.id}}</td>
-       <td data-type="text-long">{{user.name}}</td>
-       <td data-type="text-short">{{user.email}}</td>
-       <td data-type="text-short" [ngClass]="user.active ? 'statusActive' : 'statusInative'">{{isStatusActive(user)}}</td>
-       <td data-type="text-short">{{user.dateAtCreate}}</td>
-       <td data-type="text-short">
-         <a routerLink="update/{{user.id}}">
-           <mat-icon color="accent">edit</mat-icon>
-         </a>
-         <a (click)="deleteUser(user)">
-          <mat-icon color="warn">delete</mat-icon>
-        </a>
-       </td>
+       <tr *ngFor="let user of users" (dblclick)="doubleClick(user)">
+        <td>{{user.id}}</td>
+          <td style="text-transform: uppercase;">{{user.name}}</td>
+          <td>{{user.email}}</td>
+          <td [ngClass]="user.active ? 'statusActive' : 'statusInative'">{{isStatusActive(user)}}</td>
+          <td >{{user.dateAtCreate}}</td>
+          <td>
+            <!--colocal tooltip-->
+            <a class="linkEdit" routerLink="update/{{user.id}}">
+              <mat-icon class="ripple"  color="accent">edit</mat-icon>
+            </a>
+             <!--colocal tooltip-->
+            <a (click)="deleteUser(user)">
+              <mat-icon color="warn">delete</mat-icon>
+            </a>
+          </td>
      </tr>
    </tbody>
  </table>
-</mat-card>
+ <div class="noRegisterData" *ngIf="(users?.length === 0 || null)">
+   <strong>Sem registros gravados!!!</strong>
+ </div>
+</div>
 

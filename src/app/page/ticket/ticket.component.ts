@@ -1,3 +1,5 @@
+import { TicketService } from './ticket.service';
+import { ITicket } from './../../utils/models/ticket.models';
 import { Component, OnInit } from '@angular/core';
 import { SidebarService } from 'src/components/sidebar/sidebar.service';
 
@@ -8,9 +10,11 @@ import { SidebarService } from 'src/components/sidebar/sidebar.service';
 })
 export class TicketComponent implements OnInit {
 
+  tickets?: ITicket[];
+
   prioridades: string [] = ["Baixa", "Média", "Alta", "Urgente"];
 
-  constructor(private sidebarSidebar: SidebarService) {
+  constructor(private sidebarSidebar: SidebarService, private ticketService: TicketService) {
     this.sidebarSidebar.titleHeader = {
       title: 'Chamados',
       routerUrl: '/tickets'
@@ -18,6 +22,10 @@ export class TicketComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.ticketService.readTicket().subscribe((tickets) => {
+      this.tickets = tickets;
+      console.log(tickets);
+    })
   }
 
 }

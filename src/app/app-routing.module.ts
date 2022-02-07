@@ -5,6 +5,7 @@ import { HomeComponent } from './page/home/home.component';
 import { UserComponent } from './page/user/user.component';
 import { TicketComponent } from './page/ticket/ticket.component';
 import { UserCreateComponent } from './page/user/user-create/user-create.component';
+import { TicketCreateComponent } from './page/ticket/ticket-create/ticket-create.component';
 
 const routes: Routes = [
   {
@@ -14,6 +15,10 @@ const routes: Routes = [
   {
     path: "tickets",
     component: TicketComponent
+  },
+  {
+    path: "tickets/create",
+    component: TicketCreateComponent
   },
   {
     path: "users",

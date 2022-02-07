@@ -1,9 +1,13 @@
-
-<div class="switchContainer" #teste>
-  {{label}}
+<div class="switchContainer" [class.displayLabel]="!switchCheck.value" #displayLabel>
+  {{ label }}
   <label class="switch">
-
-    <input (change)="onChange($event)" [checked]="isChecked" type="checkbox">
+    <input
+      (change)="onChange($event)"
+      [checked]="isChecked"
+      type="checkbox"
+      [(ngModel)]="value"
+      #switchCheck="ngModel"
+    />
     <span class="slider"></span>
   </label>
 </div>

@@ -1,49 +1,27 @@
 
-.btnCreateUser{
-  margin-bottom: 10px;
-}
-mat-card{
+.container{
+  padding-top: 20px;
+  height: 100vh;
+  background: #e1e5ee;
+
   table{
-    border-collapse: collapse;
-    box-shadow: 0 0 2px 2px rgba(0, 183, 206, 0.2);
-    border-radius: 10px;
-    background-color: white;
-    text-align: left;
-    overflow: hidden;
     min-width: 100%;
+    width: auto;
+    flex: 1;
+    display: grid;
+    border-collapse: collapse;
 
-    thead{
-      box-shadow: 0 5px 5px #e1e5ee;
-    }
 
-    th{
-      padding: 1rem 2rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1rem;
-      font-size: 0.7rem;
-      font-weight: 900;
-    }
+/* Estes são apenas valores iniciais que são substituídos usando JavaScript,
+  quando uma coluna é redimensionada */
 
-    tbody{
-      tr {
-        transition: all 0.4s ease;
-
-          &:hover{
-            transform: scale(1.01);
-
-          }
-      }
-
-    }
-
-    td{
-
-      padding: 1rem 2rem;
-      a{
-        margin-left: 1;
-        cursor: pointer;
-      }
-    }
+    grid-template-columns:
+    minmax(100px, .5fr)
+    minmax(150px, 2.30fr)
+    minmax(150px, 1.67fr)
+    minmax(150px, .5fr)
+    minmax(100px, .7fr)
+    minmax(100px, .5fr);
 
     .statusActive{
       color: #388e3c;
@@ -57,15 +35,80 @@ mat-card{
       text-transform: uppercase;
     }
 
-    tr:nth-child(even) {
-      background-color: #f4f6fb;
+
+    thead, tbody, tr{
+      display: contents;
+
     }
+
+    th,td{
+      padding: 15px 5px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    th{
+      position: sticky;
+      top: 0;
+      background: #1d1b31;
+      text-align: left;
+      font-size: .8rem;
+      color: white;
+      position: relative;
+
+      &:last-child{
+        border: 0;
+      }
+
+      &:hover .resize-handle{
+        opacity: 0.3;
+      }
+    }
+
+    .resize-handle{
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0%;
+      background: white;
+      opacity: 0;
+      width: 3px;
+      cursor: col-resize;
+
+      /* O seguinte seletor é necessário para que a alça fique visível durante o redimensionamento,
+        mesmo que o mouse não esteja mais sobre a alça */
+        &:hover, .header--begin-resized .resize-handle{
+          opacity: 0.5;
+        }
+    }
+
+    td{
+      padding-top: 10px;
+      padding-bottom: 10px;
+      color: #1d1b31;
+      border-bottom: 1px solid #1d1b31;
+     }
+
+    tr{
+      &:nth-child(even) td{
+        background: #f9fbff;
+
+      }
+    }
+
   }
 
-}
-
-@media only screen and (min-width: 980px) {
-  mat-card{
-    overflow-x:auto;
+  .noRegisterData{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    strong{
+      text-align: center !important;
+      font-size: 18px;
+      font-weight: 600;
+    }
   }
 }

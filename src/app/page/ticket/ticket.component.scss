@@ -1,9 +1,23 @@
 .container{
-  margin: 10px auto;
-  max-width: 90%;
-  background: #EFF1F8;
+  padding: 20px;
+  height: 100vh;
+  background: #e1e5ee;
+  .content{
+    padding: 20px;
+    margin: none auto;
+    background: #f9fbff;
 
-  mat-card{
+    table.tableHeader{
+      table-layout: fixed;
+      border-collapse: collapse;
+      width: 100%;
+      box-sizing: border-box;
 
+      thead{
+        background-color: #f5f7f9;
+        padding: 10px;
+      }
+    }
   }
+
 }

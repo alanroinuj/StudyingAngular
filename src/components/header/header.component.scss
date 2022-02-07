@@ -1,3 +1,9 @@
-mat-toolbar{
-  width: calc(100% - 78px);
+.mat-primary{
+  position: relative;
+   background: #f9fbff;
+   box-shadow: 0 5px 5px #a1a3af;
+
+   button{
+     color: #1d1b31;
+   }
 }

@@ -1,37 +1,32 @@
+<header-component></header-component>
 <div class="container">
-  <mat-card>
-    <div class="cardContainer">
-      <div class="descriptionTicket">
-        <div class="headerTicket">
-          <span class="chipSituation">Novo</span>
-          <mat-card-title>Descrição chamado #0000</mat-card-title>
-        </div>
-      </div>
-      <div class="optionCard">
-        <div>
-          <ul>
-            <li *ngFor="let prioridade of prioridades">
-              {{prioridade}}
-            </li>
-          </ul>
-        </div>
-            <div>
-              <select name="" id="">
-                <option>Alan Junior</option>
-                <option>Novo Agente</option>
-              </select>
-            </div>
-              <div>
-                <select name="" id="">
-                  <option>Aberto</option>
-                  <option>Esperando o Cliente</option>
-                  <option>Esperando Terceiros</option>
-                  <option>Pendente</option>
-                  <option>Resolvido</option>
-                  <option>Fechado</option>
-                </select>
-            </div>
-      </div>
+  <div class="content">
+    <div>
+      <table class="tableHeader">
+        <thead>
+          <tr>
+            <th>Contato</th>
+            <th>Assunto</th>
+            <th>Estado</th>
+            <th>Prioridade</th>
+            <th>Status</th>
+          </tr>
+          <tr>
+          </tr>
+        </thead>
+      </table>
     </div>
-  </mat-card>
+
+    <table class="tableBody">
+      <tbody>
+        <tr *ngFor="let ticket of tickets">
+          <td>{{ticket.employee}}</td>
+          <td>{{ticket.description}}</td>
+          <td>{{ticket.state}}</td>
+          <td>{{ticket.priority}}</td>
+          <td>{{ticket.status}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>

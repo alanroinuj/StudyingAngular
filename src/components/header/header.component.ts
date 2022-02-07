@@ -1,3 +1,5 @@
+import { SidebarService } from 'src/components/sidebar/sidebar.service';
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router, private sidebar: SidebarService) {
+  }
 
   ngOnInit(): void {
   }
 
+
+  navegateTicketCreate() {
+    this.router.navigate([`${this.sidebar.titleHeader.routerUrl}/create`]);
+  }
 }

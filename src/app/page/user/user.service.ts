@@ -27,16 +27,17 @@ export class UserService {
   }
 
   createUser(user: IUser): Observable<IUser>{
-    return this.http.post<IUser>(this.API, user).pipe(
+    return this.http.post<IUser>(this.API, user)
+     /*.pipe(
       map(obj => obj),
       catchError(e => this.handlerError(e))
-    );
+    );*/
   }
 
-  handlerError(e: any): Observable<any>{
+  /*handlerError(e: any): Observable<any>{
     this.showMessage('Ocorreu um Erro!', true)
     return EMPTY;
-  }
+  }*/
 
   readUser(): Observable<IUser[]>{
     return this.http.get<IUser[]>(this.API);
@@ -51,6 +52,7 @@ export class UserService {
     const url = `${this.API}/${user.id}`;
     return this.http.put<IUser>(url, user);
   }
+
   deleteUser(id: any): Observable<IUser>{
     const url = `${this.API}/${id}`;
     return this.http.delete<IUser>(url);
