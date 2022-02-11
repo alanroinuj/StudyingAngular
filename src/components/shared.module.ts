@@ -13,7 +13,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { InputComponent } from './input/input.component';
-import { SwitchToggleComponent } from './switch-toggle/switch-toggle.component'
+import { SwitchToggleComponent } from './switch-toggle/switch-toggle.component';
+import { TooltipComponent } from './tooltip/tooltip.component'
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import { SwitchToggleComponent } from './switch-toggle/switch-toggle.component'
     SidebarComponent,
     InputComponent,
     SwitchToggleComponent,
+    TooltipComponent,
   ],
   imports: [
     CommonModule,
@@ -39,6 +41,7 @@ import { SwitchToggleComponent } from './switch-toggle/switch-toggle.component'
     SidebarComponent,
     InputComponent,
     SwitchToggleComponent,
+    TooltipComponent,
     MatCardModule,
     MatButtonModule,
     MatIconModule,

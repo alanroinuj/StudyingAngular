@@ -3,7 +3,7 @@ export interface ITicket{
   description: string;
   employee: string;
   message?: string;
-  priority: number;
+  priority: string;
   dateAtCreate?: any;
   status: string;
   state: string;

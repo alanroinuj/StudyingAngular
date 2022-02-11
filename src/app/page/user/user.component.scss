@@ -3,6 +3,10 @@
   padding-top: 20px;
   height: 100vh;
   background: #e1e5ee;
+    .content{
+    padding: 20px;
+    margin: none auto;
+    background: #f9fbff;
 
   table{
     min-width: 100%;
@@ -111,4 +115,7 @@
       font-weight: 600;
     }
   }
+
+    }
+
 }

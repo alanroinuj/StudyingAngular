@@ -3,28 +3,119 @@
   <div class="content">
     <div>
       <table class="tableHeader">
-        <thead>
+        <thead class="list">
           <tr>
-            <th>Contato</th>
-            <th>Assunto</th>
-            <th>Estado</th>
-            <th>Prioridade</th>
-            <th>Status</th>
+            <th
+              rowspan="2"
+              colspan="1"
+              style="width: 50px"
+              draggable="false"
+              class="lt-column"
+            ></th>
+            <th
+              rowspan="2"
+              colspan="1"
+              style="width: 12vw"
+              draggable="false"
+              class="lt-column"
+            >
+              Contato
+            </th>
+            <th
+              rowspan="2"
+              colspan="1"
+              style="width: 30px"
+              draggable="false"
+              class="lt-column"
+            ></th>
+            <th
+              rowspan="2"
+              colspan="1"
+              style="width: 24vw"
+              draggable="false"
+              class="lt-column"
+            >
+              Assunto
+            </th>
+            <th
+              rowspan="2"
+              colspan="1"
+              style="width: 160px"
+              draggable="false"
+              class="lt-column"
+            >
+              Estado
+            </th>
+            <th
+              rowspan="2"
+              colspan="1"
+              style="width: 120px"
+              draggable="false"
+              class="lt-column"
+            >
+              Prioridade
+            </th>
+            <th
+              rowspan="2"
+              colspan="1"
+              style="width: 120px"
+              draggable="false"
+              class="lt-column"
+            >
+              Status
+            </th>
           </tr>
-          <tr>
-          </tr>
+          <tr></tr>
         </thead>
       </table>
     </div>
 
     <table class="tableBody">
       <tbody>
-        <tr *ngFor="let ticket of tickets">
-          <td>{{ticket.employee}}</td>
-          <td>{{ticket.description}}</td>
-          <td>{{ticket.state}}</td>
-          <td>{{ticket.priority}}</td>
-          <td>{{ticket.status}}</td>
+        <tr colspan="1" *ngFor="let ticket of tickets">
+          <td style="width: 50px" class="lt-cell"></td>
+          <td style="width: 12vw" class="lt-cell">{{ ticket.employee }}</td>
+          <td style="width: 30px" class="lt-cell"></td>
+          <td style="width: 24vw" class="lt-cell">
+            <div class="descriptionTicket">
+              <a routerLink="#" class="description">{{ ticket.description }}</a
+              ><span [class.idTicket]="idTicket" #idTicket
+                >#{{ ticket.id }}</span
+              ></div>
+              <tooltip-component #activeTicket
+                employeeTicket="{{ ticket.employee }}"
+                dateCreateTicket="{{ ticket.dateAtCreate }}"
+                messageTicket="{{ ticket.message }}"
+              ></tooltip-component>
+          </td>
+          <td style="width: 160px" class="lt-cell">
+            <div style="position: relative">
+              <span class="tag stateTicket">{{ ticket.state }}</span>
+            </div>
+          </td>
+          <td style="width: 120px; position: relative" class="lt-cell">
+            <div (click)="dropdownPriority()">
+              {{ ticket.priority }}
+            </div>
+            <div class="listPriority" #activeList>
+              <ul *ngFor="let priority of priorities">
+                <li>
+                  <span class="colorPriority" #colorPriorityCustom></span
+                  >{{ priority }}
+                </li>
+              </ul>
+            </div>
+          </td>
+          <td style="width: 120px" class="lt-cell">
+            <div (click)="dropdownStatus()">
+              {{ ticket.status }}
+            </div>
+            <div class="listStatus" #activeListStatus>
+              <ul *ngFor="let status of listStatus">
+                <li>{{ status }}</li>
+              </ul>
+            </div>
+          </td>
         </tr>
       </tbody>
     </table>
