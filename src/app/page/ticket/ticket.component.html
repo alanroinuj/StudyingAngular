@@ -10,8 +10,9 @@
               colspan="1"
               style="width: 50px"
               draggable="false"
-              class="lt-column"
-            ></th>
+              class="lt-column">
+              <input type="checkbox">
+            </th>
             <th
               rowspan="2"
               colspan="1"
@@ -72,43 +73,51 @@
 
     <table class="tableBody">
       <tbody>
-        <tr colspan="1" *ngFor="let ticket of tickets">
-          <td style="width: 50px" class="lt-cell"></td>
+        <tr colspan="1" *ngFor="let ticket of tickets" #activeList>
+          <td style="width: 50px" class="lt-cell"> <input type="checkbox"> </td>
           <td style="width: 12vw" class="lt-cell">{{ ticket.employee }}</td>
           <td style="width: 30px" class="lt-cell"></td>
           <td style="width: 24vw" class="lt-cell">
             <div class="descriptionTicket">
-              <a routerLink="#" class="description">{{ ticket.description }}</a
-              ><span [class.idTicket]="idTicket" #idTicket
-                >#{{ ticket.id }}</span
-              ></div>
+              <div>
+                <a routerLink="{{ticket.id}}" class="description">{{ ticket.description }}</a>
+                <span [class.idTicket]="idTicket" #idTicket>#{{ ticket.id }}</span>
+            </div>
               <tooltip-component #activeTicket
+                highlightMouse
                 employeeTicket="{{ ticket.employee }}"
                 dateCreateTicket="{{ ticket.dateAtCreate }}"
-                messageTicket="{{ ticket.message }}"
-              ></tooltip-component>
+                messageTicket="{{ ticket.message }}">
+              </tooltip-component>
+            </div>
           </td>
           <td style="width: 160px" class="lt-cell">
             <div style="position: relative">
               <span class="tag stateTicket">{{ ticket.state }}</span>
             </div>
           </td>
+          <!--Inicio da Lista de prioridade-->
           <td style="width: 120px; position: relative" class="lt-cell">
-            <div (click)="dropdownPriority()">
-              {{ ticket.priority }}
-            </div>
-            <div class="listPriority" #activeList>
-              <ul *ngFor="let priority of priorities">
-                <li>
-                  <span class="colorPriority" #colorPriorityCustom></span
-                  >{{ priority }}
-                </li>
-              </ul>
+            <div >
+              <div class="dataPriority" (click)="dropdownPriority()">
+                <span class="colorPriority" #colorPriorityCustom></span>
+                {{ ticket.priority }}
+              <mat-icon>expand_more</mat-icon>
+              </div>
+              <div class="listPriority" >
+                <ul *ngFor="let priority of listpriorities">
+                  <li (click)="selectPriority(ticket, priority)">
+                    <span class="colorPriority" #colorPriorityCustom ></span>
+                    {{ priority }}
+                  </li>
+                </ul>
+              </div>
             </div>
           </td>
           <td style="width: 120px" class="lt-cell">
             <div (click)="dropdownStatus()">
               {{ ticket.status }}
+              <mat-icon>expand_more</mat-icon>
             </div>
             <div class="listStatus" #activeListStatus>
               <ul *ngFor="let status of listStatus">

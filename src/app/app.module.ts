@@ -13,6 +13,8 @@ import { HomeComponent } from './page/home/home.component';
 import { UserComponent } from './page/user/user.component';
 import { TicketComponent } from './page/ticket/ticket.component';
 import { UserCreateComponent } from './page/user/user-create/user-create.component';
+import { TicketEditComponent } from './page/ticket/ticket-edit/ticket-edit.component';
+import { HighlightMouseDirective } from './page/ticket/highlight-mouse.directive';
 
 
 @NgModule({
@@ -22,7 +24,9 @@ import { UserCreateComponent } from './page/user/user-create/user-create.compone
     UserComponent,
     TicketComponent,
     UserCreateComponent,
-    TicketCreateComponent
+    TicketCreateComponent,
+    TicketEditComponent,
+    HighlightMouseDirective
   ],
   imports: [
     BrowserModule,

@@ -1,3 +1,4 @@
+import { TicketEditComponent } from './page/ticket/ticket-edit/ticket-edit.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -19,6 +20,10 @@ const routes: Routes = [
   {
     path: "tickets/create",
     component: TicketCreateComponent
+  },
+  {
+    path: "tickets/:id",
+    component: TicketEditComponent
   },
   {
     path: "users",

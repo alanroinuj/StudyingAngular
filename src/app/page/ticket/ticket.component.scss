@@ -53,25 +53,24 @@
             vertical-align: middle;
             display: table-cell;
             padding: 15px 15px 15px 0;
+            border-bottom: .5px solid #cfd7df;
+
+            .descriptionTicket div:hover + tooltip-component{
+              opacity: 1;
+              transform: translateY(5px);
+              pointer-events: initial;
+            }
 
            .description{
               color: #11344D;
               font-weight: 500;
               text-decoration: none;
 
-              &:hover{
+              &:hover {
                 color: #179be7;
               }
 
-              &:hover .activeTicket{
-                opacity: 1;
-                transform: translateY(5px);
-                pointer-events: initial;
-                position: initial;
-              }
-
             }
-
 
             .idTicket{
               font-size: 12px;
@@ -98,9 +97,21 @@
               border: 1px solid #a3bffd;
             }
 
+            .dataPriority{
+              display: flex;
+              align-items: center;
+              width: 60px;
+              cursor: pointer;
+
+              &:hover{
+                font-weight: 500;
+              }
+            }
+
 
             .listPriority{
               display: block;
+              left: 50px;
               position: absolute;
               padding: 8px;
               min-width: 120px;
@@ -111,12 +122,8 @@
               opacity: 0;
               transition: all .3s ease;
               pointer-events: none;
-
-              &.activeList{
-                opacity: 1;
-                transform: translateY(5px);
-                pointer-events: initial;
-              }
+              z-index: 20;
+              pointer-events: none;
 
               ul{
                 list-style: none;
@@ -150,6 +157,12 @@
               }
             }
 
+            .listPriority.activeList{
+              opacity: 1;
+              transform: translateY(5px);
+              pointer-events: initial;
+            }
+
             .listStatus{
               overflow-y: auto;
               max-width: 140px;
@@ -163,6 +176,7 @@
               opacity: 0;
               transition: all .3s ease;
               pointer-events: none;
+              z-index: 20;
 
               &::-webkit-scrollbar{
                 width: 5px;
@@ -210,7 +224,7 @@
               &::before{
                 content: "";
                 position: absolute;
-                width: 2px;
+                //width: 2px;
                 left: 0;
                 top: 0;
                 bottom: 0;
@@ -240,10 +254,10 @@ tooltip-component{
   border-radius: 5px;
   border: 1px solid #cfd7df;
   box-shadow: 0 5px 18px 0 rgb(222 225 225 / 40%), 0 6px 13px 0 rgb(0 0 0 / 8%);
-  transition: 0s;
+  transition: all .3s ease;
   background-color: #fff;
   text-align: center;
-  opacity: 1;
+  opacity: 0;
   pointer-events: none;
   z-index: 10;
 
