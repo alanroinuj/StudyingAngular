@@ -73,7 +73,7 @@
 
     <table class="tableBody">
       <tbody>
-        <tr colspan="1" *ngFor="let ticket of tickets" #activeList>
+        <tr colspan="1" *ngFor="let ticket of tickets">
           <td style="width: 50px" class="lt-cell"> <input type="checkbox"> </td>
           <td style="width: 12vw" class="lt-cell">{{ ticket.employee }}</td>
           <td style="width: 30px" class="lt-cell"></td>
@@ -104,7 +104,7 @@
                 {{ ticket.priority }}
               <mat-icon>expand_more</mat-icon>
               </div>
-              <div class="listPriority" >
+              <div class="listPriority"  #activeList>
                 <ul *ngFor="let priority of listpriorities">
                   <li (click)="selectPriority(ticket, priority)">
                     <span class="colorPriority" #colorPriorityCustom ></span>
