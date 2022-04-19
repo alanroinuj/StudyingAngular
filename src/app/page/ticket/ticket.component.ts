@@ -23,10 +23,10 @@ export class TicketComponent implements OnInit {
   listStatus: string [] = ["Aberto", "Aguardando Cliente", "Aguardando Terceiro", "Em andamento", "Resolvido", "Fechado"];
 
   constructor(
-    private sidebarSidebar: SidebarService,
+    private sidebarService: SidebarService,
     private ticketService: TicketService) {
 
-    this.sidebarSidebar.titleHeader = {
+    this.sidebarService.titleHeader = {
       title: 'Chamados',
       routerUrl: '/tickets'
     }

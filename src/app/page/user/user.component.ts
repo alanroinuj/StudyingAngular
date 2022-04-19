@@ -1,10 +1,12 @@
-import { IUser } from './../../utils/models/user.model';
+import { User } from './../../utils/models/user.model';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { SidebarService } from 'src/components/sidebar/sidebar.service';
 import { UserService } from './user.service';
 import { Observable } from 'rxjs';
+import { AlertDialogComponent } from 'src/components/alert-dialog/alert-dialog.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-user',
@@ -12,16 +14,17 @@ import { Observable } from 'rxjs';
   styleUrls: ['./user.component.scss'],
 })
 export class UserComponent implements OnInit {
-  users?: IUser[];
+  users?: User[];
   active?: boolean;
-  user?: IUser;
+  user?: User;
 
 
   constructor(
     private router: Router,
     private sidebarService: SidebarService,
     private userService: UserService,
-    private location: Location
+    private location: Location,
+    public dialog: MatDialog,
   ) {
     this.sidebarService.titleHeader = {
       title: 'Usuários',
@@ -38,7 +41,7 @@ export class UserComponent implements OnInit {
   }
 
   //Altera boolean na tabela para string;
-  isStatusActive(user: IUser) {
+  isStatusActive(user: User) {
     return user.active ? 'Ativo' : 'Inativo';
   }
 
@@ -46,14 +49,13 @@ export class UserComponent implements OnInit {
     this.router.navigate(['/users/create']);
   }
 
-  doubleClick(user: IUser) {
+  doubleClick(user: User) {
     this.router.navigate([`update/${user.id}`]);
   }
 
-  deleteUser(user: IUser) {
-    this.userService.deleteUser(user.id).subscribe(() => {
-      this.location.historyGo();
-      this.userService.showToast('Exclusão Realizado!');
-    });
+  showAlertDialog(user: User){
+    this.userService.userId.id = user.id;
+    this.dialog.open(AlertDialogComponent);
+
   }
 }

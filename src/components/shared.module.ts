@@ -12,9 +12,11 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatDialogModule } from '@angular/material/dialog';
 import { InputComponent } from './input/input.component';
 import { SwitchToggleComponent } from './switch-toggle/switch-toggle.component';
-import { TooltipComponent } from './tooltip/tooltip.component'
+import { TooltipComponent } from './tooltip/tooltip.component';
+import { AlertDialogComponent } from './alert-dialog/alert-dialog.component'
 
 
 @NgModule({
@@ -24,6 +26,7 @@ import { TooltipComponent } from './tooltip/tooltip.component'
     InputComponent,
     SwitchToggleComponent,
     TooltipComponent,
+    AlertDialogComponent,
   ],
   imports: [
     CommonModule,
@@ -33,6 +36,7 @@ import { TooltipComponent } from './tooltip/tooltip.component'
     MatCardModule,
     MatButtonModule,
     MatSnackBarModule,
+    MatDialogModule,
     RouterModule,
     FormsModule
   ],
@@ -45,7 +49,9 @@ import { TooltipComponent } from './tooltip/tooltip.component'
     MatCardModule,
     MatButtonModule,
     MatIconModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatDialogModule,
+    AlertDialogComponent
   ]
 })
 export class SharedModule { }

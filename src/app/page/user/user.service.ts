@@ -2,9 +2,9 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { environment } from 'src/environments/environment';
-import { IUser } from './../../utils/models/user.model';
+import { User } from './../../utils/models/user.model';
 
-import {  Observable, EMPTY } from 'rxjs';
+import { Observable, EMPTY, BehaviorSubject } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 
 @Injectable({
@@ -12,10 +12,22 @@ import { catchError, map } from 'rxjs/operators';
 })
 export class UserService {
 
+  public _userId = new BehaviorSubject<User>({
+    id: 0
+  })
+
   private readonly API = `${environment.API}users`
   showMessage: any;
 
   constructor(private snackBar: MatSnackBar, private http: HttpClient) { }
+
+  get userId(): User{
+    return this._userId.value;
+  }
+
+  set userId(userId: User){
+    this._userId.next(userId);
+  }
 
   showToast(msg: string, isError: boolean = false): void{
     this.snackBar.open(msg, '',{
@@ -26,8 +38,8 @@ export class UserService {
     });
   }
 
-  createUser(user: IUser): Observable<IUser>{
-    return this.http.post<IUser>(this.API, user)
+  createUser(user: User): Observable<User>{
+    return this.http.post<User>(this.API, user)
      /*.pipe(
       map(obj => obj),
       catchError(e => this.handlerError(e))
@@ -39,22 +51,22 @@ export class UserService {
     return EMPTY;
   }*/
 
-  readUser(): Observable<IUser[]>{
-    return this.http.get<IUser[]>(this.API);
+  readUser(): Observable<User[]>{
+    return this.http.get<User[]>(this.API);
   }
 
-  readByIdUser(id: any): Observable<IUser>{
+  readByIdUser(id: any): Observable<User>{
     const url = `${this.API}/${id}`;
-    return this.http.get<IUser>(url);
+    return this.http.get<User>(url);
   }
 
-  updateUser(user: IUser): Observable<IUser>{
+  updateUser(user: User): Observable<User>{
     const url = `${this.API}/${user.id}`;
-    return this.http.put<IUser>(url, user);
+    return this.http.put<User>(url, user);
   }
 
-  deleteUser(id: any): Observable<IUser>{
+  deleteUser(id: any): Observable<User>{
     const url = `${this.API}/${id}`;
-    return this.http.delete<IUser>(url);
+    return this.http.delete<User>(url);
   }
 }

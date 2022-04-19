@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { IUser } from './../../../utils/models/user.model';
+import { User } from './../../../utils/models/user.model';
 import { SidebarService } from 'src/components/sidebar/sidebar.service';
 import { UserService } from '../user.service';
 
@@ -11,7 +11,8 @@ import { UserService } from '../user.service';
   styleUrls: ['./user-create.component.scss'],
 })
 export class UserCreateComponent implements OnInit {
-  user: IUser = {
+  user: User = {
+    id: 0,
     name: '',
     email: '',
     password: '',
