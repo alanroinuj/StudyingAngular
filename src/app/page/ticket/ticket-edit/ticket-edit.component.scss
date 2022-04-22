@@ -84,13 +84,27 @@
       justify-content: space-between;
       margin: 0 10px;
       padding: 10px;
-      height: 400px;
+      height: 450px;
       width: 30%;
       background: #FFFFFF;
       box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.05);
+      border-radius: 10px;
 
       .headerPropriety{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
         margin: 0px 10px;
+        h2{
+          font-weight: 500;
+
+        }
+        div{
+          span{
+            border: 1px solid rgba(22, 89, 233, 0.05);
+            border-radius: 4px;
+          }
+        }
       }
 
       .inputSelects{
@@ -99,12 +113,22 @@
         margin-top: 5px;
         display: flex;
         flex-direction: column;
+        font-size: 16px;
+        font-weight: 500;
+        color: #2a324b;
+
+        input{
+
+          padding: 5px 0px;
+          border: 1px solid rgba(51, 47, 112, 0.2);
+          border-radius: 5px;
+        }
        }
       }
 
       .btnUpdateTicket{
-        //display: block;
-        width: 100%;
+        margin-left: 10px;
+        margin-right: 10px;
         padding: 10px 0px;
         border: none;
         box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.05);

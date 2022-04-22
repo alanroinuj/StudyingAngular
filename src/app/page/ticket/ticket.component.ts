@@ -1,3 +1,4 @@
+import { HeaderService } from './../../../components/header/header-service.service';
 import { TicketService } from './ticket.service';
 import { ITicket } from './../../utils/models/ticket.models';
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
@@ -9,8 +10,9 @@ import { SidebarService } from 'src/components/sidebar/sidebar.service';
   styleUrls: ['./ticket.component.scss']
 })
 export class TicketComponent implements OnInit {
-
-  tickets!: ITicket[];
+  ticket: any;
+  tickets: ITicket[];
+  retorno: any;
   prioritiesData!: ITicket;
 
 
@@ -24,13 +26,28 @@ export class TicketComponent implements OnInit {
 
   constructor(
     private sidebarService: SidebarService,
-    private ticketService: TicketService) {
+    private ticketService: TicketService,
+    private headerService: HeaderService) {
 
     this.sidebarService.titleHeader = {
       title: 'Chamados',
       routerUrl: '/tickets'
     }
 
+  }
+
+   ngOnInit(): void {
+     this.listTickets();
+  }
+
+
+
+  listTickets(){
+    this.ticketService.readTicket().subscribe((tickets) => {
+     this.tickets = tickets;
+     console.log(this.tickets)
+     //this.ticketService.ticketData.id = tickets.
+    });
   }
 
   dropdownPriority(){
@@ -40,12 +57,6 @@ export class TicketComponent implements OnInit {
     this.isActiveListStatus.nativeElement.classList.toggle("activeListStatus");;
   }
 
-
-  ngOnInit(): void {
-    this.ticketService.readTicket().subscribe((tickets) => {
-      this.tickets = tickets;
-    });
-  }
 
   //Ao selecionar alguma opção do menu de propriedda, o metodo vai fazer um get no backend e atualiza o dado da tabela
   selectPriority(ticket: ITicket, propriedade: string){

@@ -1,6 +1,8 @@
+import { TicketService } from './../../app/page/ticket/ticket.service';
+import { HeaderService } from './header-service.service';
 import { SidebarService } from 'src/components/sidebar/sidebar.service';
 import { Router } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'header-component',
@@ -9,14 +11,43 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private router: Router, private sidebar: SidebarService) {
+  @Input() isEnable: boolean = false;
+  @Input() id:string;
+
+  constructor(
+    private router: Router,
+    private sidebar: SidebarService,
+    private headerService: HeaderService,
+    private ticketService: TicketService) {
+  }
+
+  get idTicket() :any{
+    return this.ticketService.ticketData.id;
   }
 
   ngOnInit(): void {
+    if(this.sidebar.titleHeader.routerUrl == "/tickets" || "/tickets/create"){
+      this.isEnable = true;
+      return
+    }else{
+      this.isEnable = false;
+    }
+    if(!this.idTicket){
+      this.isEnable = false;
+      return
+    }
+    console.log(this.idTicket);
   }
 
 
   navegateTicketCreate() {
     this.router.navigate([`${this.sidebar.titleHeader.routerUrl}/create`]);
   }
+
+  get btnReply(): boolean{
+    return this.headerService.buttonEnable.disable;
+  }
+
+
+
 }

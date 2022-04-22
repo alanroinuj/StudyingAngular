@@ -1,10 +1,10 @@
 export interface ITicket{
   id?: number;
-  description: string;
-  employee: string;
+  description?: string;
+  employee?: string;
   message?: string;
-  priority: string;
+  priority?: string;
   dateAtCreate?: any;
-  status: string;
-  state: string;
+  status?: string;
+  state?: string;
 }

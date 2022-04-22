@@ -1,5 +1,5 @@
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 import { ITicket } from './../../utils/models/ticket.models';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -9,11 +9,25 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class TicketService {
+  tickets: ITicket;
 
   private readonly API = `${environment.API}tickets`;
   showMessage: any;
 
+  private _ticketData = new BehaviorSubject<ITicket>({
+    id: null || 0,
+    description: "",
+  })
+
   constructor(private snackBar: MatSnackBar, private http: HttpClient) { }
+
+  get ticketData(): ITicket{
+    return this._ticketData.value;
+  }
+
+  set ticketData(tickets: ITicket){
+    this._ticketData.next(tickets);
+  }
 
   showToast(msg: string, isError: boolean = false): void{
     this.snackBar.open(msg, '',{

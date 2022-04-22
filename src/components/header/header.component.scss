@@ -1,9 +1,39 @@
-.mat-primary{
-  position: relative;
-   background: #f9fbff;
-   box-shadow: 0 5px 5px #a1a3af;
+  .mat-primary{
+    position: relative;
+     background: #f9fbff;
+     box-shadow: 0 5px 5px #a1a3af;
 
-   button{
-     color: #1d1b31;
-   }
-}
+     button{
+       color: #1d1b31;
+       margin-right: 2px;
+     }
+
+     .disableButton{
+       display: none;
+     }
+  }
+
+  .searchHeader{
+
+      display: flex;
+      align-items: center;
+
+    input[type=text]{
+      width:  150px;
+      outline:none;
+      padding: 9px;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      border-radius: 5px;
+      -webkit-transition: all 0.5s ease;
+      -moz-transition: all 0.5s ease;
+      -o-transition: all 0.5s ease;
+      transition: all 0.5s ease;
+    }
+
+    input[type=text]:focus{
+      width: 300px;
+      border-color:  rgb(41, 98, 255);
+    }
+  }
+
+

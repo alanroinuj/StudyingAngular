@@ -1,4 +1,4 @@
-import { ITitle } from './../../app/utils/models/title.model';
+import { Title } from './../../app/utils/models/title.model';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
@@ -7,18 +7,18 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class SidebarService {
 
-    private _title = new BehaviorSubject<ITitle>({
-    title: 'Dasboard',
+    private _title = new BehaviorSubject<Title>({
+    title: 'Dashboard',
     routerUrl: ''
   })
 
   constructor() { }
 
-  get titleHeader(): ITitle{
+  get titleHeader(): Title{
     return this._title.value;
   }
 
-  set titleHeader(titleHeader: ITitle){
+  set titleHeader(titleHeader: Title){
     this._title.next(titleHeader);
   }
 

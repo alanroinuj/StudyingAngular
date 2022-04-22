@@ -3,4 +3,37 @@
       <mat-icon >add</mat-icon>
         Novo
     </button>
+    <button [ngClass]="isEnable ? 'disableButton': ''" id="btnReply" mat-stroked-button >
+      <mat-icon >reply</mat-icon>
+        Responder
+    </button>
+    <button [ngClass]="isEnable ? 'disableButton': ''" mat-stroked-button>
+      <mat-icon >subject</mat-icon>
+        Anotação
+    </button>
+    <button [ngClass]="isEnable ? 'disableButton': ''" mat-stroked-button>
+      <mat-icon >task_alt</mat-icon>
+        Fechar
+    </button>
+    <button [ngClass]="isEnable ? 'disableButton': ''" mat-stroked-button>
+      <mat-icon >delete</mat-icon>
+        Excluir
+    </button>
+    <button [ngClass]="isEnable ? 'disableButton': ''" mat-stroked-button>
+      <mat-icon >print</mat-icon>
+        Imprimir
+    </button>
+    <button [ngClass]="isEnable ? 'disableButton': ''" mat-stroked-button>
+      <mat-icon >print</mat-icon>
+        Gerar Termo
+    </button>
+    <button [ngClass]="isEnable ? 'disableButton': ''" mat-stroked-button>
+      <mat-icon >attachment</mat-icon>
+    </button>
+    <div class="searchHeader">
+      <input class="inputSearch" type="text" placeholder="Pesquisar">
+      <button mat-stroked-button>
+        <mat-icon>search</mat-icon>
+      </button>
+    </div>
 </mat-toolbar>

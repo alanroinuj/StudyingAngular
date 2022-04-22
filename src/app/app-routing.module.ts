@@ -9,38 +9,17 @@ import { UserCreateComponent } from './page/user/user-create/user-create.compone
 import { TicketCreateComponent } from './page/ticket/ticket-create/ticket-create.component';
 
 const routes: Routes = [
-  {
-  path:"",
-  component: HomeComponent
-  },
-  {
-    path: "tickets",
-    component: TicketComponent
-  },
-  {
-    path: "tickets/create",
-    component: TicketCreateComponent
-  },
-  {
-    path: "tickets/:id",
-    component: TicketEditComponent
-  },
-  {
-    path: "users",
-    component: UserComponent
-  },
-  {
-    path: "users/create",
-    component: UserCreateComponent
-  },
-  {
-    path: "users/update/:id",
-    component: UserCreateComponent
-  }
+  { path: '', component: HomeComponent },
+  { path: 'tickets', component: TicketComponent },
+  { path: 'tickets/create', component: TicketCreateComponent },
+  { path: 'tickets/:id', component: TicketEditComponent },
+  { path: 'users', component: UserComponent },
+  { path: 'users/create', component: UserCreateComponent },
+  { path: 'users/update/:id', component: UserCreateComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
