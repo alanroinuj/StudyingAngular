@@ -14,6 +14,8 @@ export class HeaderComponent implements OnInit {
   @Input() isEnable: boolean = false;
   @Input() id:string;
 
+  idSearchHeader: string;
+
   constructor(
     private router: Router,
     private sidebar: SidebarService,
@@ -26,17 +28,6 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if(this.sidebar.titleHeader.routerUrl == "/tickets" || "/tickets/create"){
-      this.isEnable = true;
-      return
-    }else{
-      this.isEnable = false;
-    }
-    if(!this.idTicket){
-      this.isEnable = false;
-      return
-    }
-    console.log(this.idTicket);
   }
 
 

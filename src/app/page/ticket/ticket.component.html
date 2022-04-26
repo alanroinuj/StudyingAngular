@@ -81,7 +81,7 @@
           <td style="width: 24vw" class="lt-cell">
             <div class="descriptionTicket">
               <div>
-                <a routerLink="{{ticket.id}}" class="description">{{ ticket.description }}</a>
+                <a [routerLink]="['/tickets',ticket.id]" class="description">{{ ticket.description }}</a>
                 <span [class.idTicket]="idTicket" #idTicket>#{{ ticket.id }}</span>
             </div>
               <tooltip-component #activeTicket

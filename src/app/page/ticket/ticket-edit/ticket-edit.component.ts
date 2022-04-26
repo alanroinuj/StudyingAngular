@@ -24,20 +24,22 @@ export class TicketEditComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.route.params.subscribe((params: any) =>{
+      this.id = params['id'];
+    });
+    console.log(this.id);
     this.readIdTicket();
     this.headerService.buttonEnable.disable = false;
-
   }
 
   readIdTicket(){
-    this.id = this.route.snapshot.paramMap.get('id');
     this.ticketService.readByIdTicket(this.id).subscribe((ticket) =>{
       this.tickets = ticket;
       this.sidebarService.titleHeader = {
         title: `${this.tickets.description}#${this.tickets.id}`,
-        routerUrl: "/tickets"
+        routerUrl: `/tickets`
       }
-      this.ticketService.ticketData.id = this.tickets.id;
+      this.ticketService.ticketData.id = this.id;
     });
   }
 }

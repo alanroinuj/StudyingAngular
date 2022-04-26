@@ -30,7 +30,7 @@
     <button [ngClass]="isEnable ? 'disableButton': ''" mat-stroked-button>
       <mat-icon >attachment</mat-icon>
     </button>
-    <div class="searchHeader">
+    <div [id]="idSearchHeader" [ngClass]="isEnable ? 'disableButton': ''" class="searchHeader">
       <input class="inputSearch" type="text" placeholder="Pesquisar">
       <button mat-stroked-button>
         <mat-icon>search</mat-icon>
