@@ -1,3 +1,4 @@
+import { EmployeeModule } from './page/employee/employee.module';
 import { TicketCreateComponent } from './page/ticket/ticket-create/ticket-create.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -26,7 +27,7 @@ import { HighlightMouseDirective } from './page/ticket/highlight-mouse.directive
     UserCreateComponent,
     TicketCreateComponent,
     TicketEditComponent,
-    HighlightMouseDirective
+    HighlightMouseDirective,
   ],
   imports: [
     BrowserModule,
@@ -34,7 +35,8 @@ import { HighlightMouseDirective } from './page/ticket/highlight-mouse.directive
     BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    EmployeeModule
   ],
   exports:[
     HomeComponent,

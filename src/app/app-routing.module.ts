@@ -1,3 +1,4 @@
+import { EmployeeComponent } from './page/employee/employee.component';
 import { TicketEditComponent } from './page/ticket/ticket-edit/ticket-edit.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -10,6 +11,7 @@ import { TicketCreateComponent } from './page/ticket/ticket-create/ticket-create
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
+  { path: 'employees', component: EmployeeComponent},
   { path: 'tickets', component: TicketComponent },
   { path: 'tickets/create', component: TicketCreateComponent },
   { path: 'tickets/:id', component: TicketEditComponent },
