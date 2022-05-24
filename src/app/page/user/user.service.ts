@@ -40,16 +40,16 @@ export class UserService {
 
   createUser(user: User): Observable<User>{
     return this.http.post<User>(this.API, user)
-     /*.pipe(
+     .pipe(
       map(obj => obj),
       catchError(e => this.handlerError(e))
-    );*/
+    )
   }
 
-  /*handlerError(e: any): Observable<any>{
+  handlerError(e: any): Observable<any>{
     this.showMessage('Ocorreu um Erro!', true)
     return EMPTY;
-  }*/
+  }
 
   readUser(): Observable<User[]>{
     return this.http.get<User[]>(this.API);

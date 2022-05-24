@@ -1,26 +1,21 @@
-<form [formGroup]="form">
+<header-component></header-component>
 
-  <div class="form-group">
-    <label for="nome">Nome</label>
-    <input type="text" class="form-control" name="name" formControlName="name" required>
-  </div>
+<mat-card>
+  <carousel #myCarousel
+    [images]="photo"
+    [objectFit]="'cover'"
+    [cellWidth]="'100%'"
+    [arrowsOutside]="true"
+    [autoplay]="true"
+    [dots]="true"
+    [loop]="true">
+  </carousel>
+  <mat-card-content *ngFor="let item of employee">
+    <mat-card-title>{{item.name}}</mat-card-title>
+    <mat-card-subtitle>{{item.department}}</mat-card-subtitle>
+    <strong>{{item.phone}}</strong>
+    <span>{{item.active}}</span>
+  </mat-card-content>
 
-  <div class="form-group">
-    <label for="department">Departamento</label>
-    <input type="text" class="form-control" name="department" formControlName="department">
-  </div>
+</mat-card>
 
-  <div class="form-group">
-    <label for="phone">Fone</label>
-    <input type="text" class="form-control" name="phone" formControlName="phone">
-  </div>
-
-  <div class="form-check">
-    <input class="form-check-input" type="checkbox" name="active" formControlName="active">
-    <label class="form-check-label" for="active">Ativo</label>
-  </div>
-
-  <button (click)="onSubmit()">Salvar</button>
-  <a href="#" class="btn btn-secondary mt-4 ml-2">Cancelar</a>
-
-</form>
