@@ -1,10 +1,11 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { SidebarService } from 'src/components/sidebar/sidebar.service';
 import {IvyCarouselModule} from 'angular-responsive-carousel';
 import { EmployeeService } from './employee.service';
 import { Employee } from 'src/app/utils/models/employee';
 import { Photo } from 'src/app/utils/models/photo';
+
 
 @Component({
   selector: 'app-employee',
@@ -14,16 +15,24 @@ import { Photo } from 'src/app/utils/models/photo';
 export class EmployeeComponent implements OnInit {
   employee: Employee[];
   photo: Photo;
+  @ViewChild('menuTrigger') menuTrigger: ElementRef;
 
   constructor(
     private router: Router,
     private sidebarService: SidebarService,
-    private employeeService: EmployeeService
+    private employeeService: EmployeeService,
+    private eRef: ElementRef
   ) {
     this.sidebarService.titleHeader = {
       title: 'Funcionários',
       routerUrl: '/employees',
     };
+    }
+
+    @HostListener('document: click', ['$event'])
+    clickout(event: Event){
+      this.eRef.nativeElement.contains(event.target)
+      console.log(event.target);
     }
 
   ngOnInit(){
@@ -48,6 +57,17 @@ export class EmployeeComponent implements OnInit {
       this.photo = result;
       console.log(this.photo)
     })
+  }
+
+  readId(id: number){
+    this.employeeService.readByIdEmployee(id).subscribe(() =>{
+      this.router.navigate([`employees/${id}`]);
+    });
+
+  }
+
+  openMenu(){
+    this.menuTrigger.nativeElement.classList.toggle('menuTrigger')
   }
 
 }

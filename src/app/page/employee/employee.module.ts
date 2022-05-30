@@ -1,11 +1,12 @@
 import { ReactiveFormsModule } from '@angular/forms';
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { EmployeeComponent } from './employee.component';
 import { EmployeeEditComponent } from './employee-edit/employee-edit.component';
 import { SharedModule } from 'src/components/shared.module';
 
 import {IvyCarouselModule} from 'angular-responsive-carousel';
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 
@@ -18,7 +19,9 @@ import {IvyCarouselModule} from 'angular-responsive-carousel';
     CommonModule,
     ReactiveFormsModule,
     IvyCarouselModule,
-    SharedModule
-  ]
+    SharedModule,
+    MatDialogModule
+  ],
+  schemas:[ CUSTOM_ELEMENTS_SCHEMA]
 })
 export class EmployeeModule { }

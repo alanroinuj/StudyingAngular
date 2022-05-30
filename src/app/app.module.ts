@@ -1,3 +1,4 @@
+import { CanActivate } from '@angular/Router';
 import { EmployeeModule } from './page/employee/employee.module';
 import { TicketCreateComponent } from './page/ticket/ticket-create/ticket-create.component';
 import { NgModule } from '@angular/core';
@@ -10,18 +11,17 @@ import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from 'src/components/shared.module';
 
 import { AppComponent } from './app.component';
-import { HomeComponent } from './page/home/home.component';
 import { UserComponent } from './page/user/user.component';
 import { TicketComponent } from './page/ticket/ticket.component';
 import { UserCreateComponent } from './page/user/user-create/user-create.component';
 import { TicketEditComponent } from './page/ticket/ticket-edit/ticket-edit.component';
 import { HighlightMouseDirective } from './page/ticket/highlight-mouse.directive';
+import { AuthGuardService } from './page/login/security/authguard.service';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
     UserComponent,
     TicketComponent,
     UserCreateComponent,
@@ -39,10 +39,9 @@ import { HighlightMouseDirective } from './page/ticket/highlight-mouse.directive
     EmployeeModule
   ],
   exports:[
-    HomeComponent,
     UserComponent
   ],
-  providers: [],
+  providers: [AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

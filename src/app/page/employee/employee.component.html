@@ -1,21 +1,29 @@
 <header-component></header-component>
+<div class="container">
+  <mat-card  *ngFor="let item of employee">
+    <mat-icon class="mat-18" (click)="openMenu()" >more_vert</mat-icon>
+    <div class="menuCard" #menuTrigger>
+      <ul>
+        <li (click)="readId(item.id)" style="margin-bottom: 5px"><mat-icon style="font-size: 18px">edit</mat-icon> Editar</li>
+        <li><mat-icon style="font-size: 18px">delete</mat-icon> Excluir</li>
+      </ul>
+    </div>
+    <carousel #myCarousel
+      [images]="photo"
+      [objectFit]="'cover'"
+      [cellWidth]="'100%'"
+      [arrowsOutside]="true"
+      [autoplay]="true"
+      [dots]="true"
+      [loop]="true">
+    </carousel>
+    <mat-card-content>
+      <mat-card-title>{{item.name}}</mat-card-title>
+      <mat-card-subtitle>{{item.department}}</mat-card-subtitle>
+      <strong>{{item.phone}}</strong>
+      <span>{{item.active}}</span>
+    </mat-card-content>
+  </mat-card>
+</div>
 
-<mat-card>
-  <carousel #myCarousel
-    [images]="photo"
-    [objectFit]="'cover'"
-    [cellWidth]="'100%'"
-    [arrowsOutside]="true"
-    [autoplay]="true"
-    [dots]="true"
-    [loop]="true">
-  </carousel>
-  <mat-card-content *ngFor="let item of employee">
-    <mat-card-title>{{item.name}}</mat-card-title>
-    <mat-card-subtitle>{{item.department}}</mat-card-subtitle>
-    <strong>{{item.phone}}</strong>
-    <span>{{item.active}}</span>
-  </mat-card-content>
-
-</mat-card>
 

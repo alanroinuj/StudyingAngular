@@ -1,6 +1,49 @@
+.container{
+  //height: 100vh;
+  width: 80%;
+  padding: 20px;
+  margin: 40px auto;
+  border-radius: 20px;
+  box-shadow: 0 0 2px 0 rgba($color: #000000, $alpha: 1.0);
+  display: flex;
+  flex-wrap: wrap;
+
+}
+
 mat-card{
-  margin: 50px;
-  width: 400px;
-  height: 500px;
-  padding: 50px;
+  position: relative;
+  width: 33%;
+  margin: 10px;
+  padding: 5px 10px;
+
+  .mat-18{
+    cursor: pointer;
+  }
+  .menuCard{
+    display: none;
+    transition: all .3s ease;
+  }
+
+  .menuTrigger{
+    display: block;
+    position: absolute;
+    z-index: 999999;
+    transform: translateY(5px);
+
+    ul{
+      width: 100px;
+      padding:10px;
+      background-color: rgb(188, 208, 231);
+      color: #3a70d4;
+      list-style: none;
+      box-shadow: 0 0 2px 0 rgba($color: #000000, $alpha: 1.0);
+
+      li{
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        cursor: pointer;
+      }
+    }
+  }
 }
