@@ -2,6 +2,8 @@ import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgxMaskModule } from 'ngx-mask'
+import { NgxDropzoneModule } from 'ngx-dropzone';
 
 
 import { HeaderComponent } from './header/header.component';
@@ -17,7 +19,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { InputComponent } from './input/input.component';
 import { SwitchToggleComponent } from './switch-toggle/switch-toggle.component';
 import { TooltipComponent } from './tooltip/tooltip.component';
-import { AlertDialogComponent } from './alert-dialog/alert-dialog.component'
+import { AlertDialogComponent } from './alert-dialog/alert-dialog.component';
+import { UploadPhotoComponent } from './upload-photo/upload-photo.component'
 
 
 @NgModule({
@@ -28,6 +31,7 @@ import { AlertDialogComponent } from './alert-dialog/alert-dialog.component'
     SwitchToggleComponent,
     TooltipComponent,
     AlertDialogComponent,
+    UploadPhotoComponent,
   ],
   imports: [
     CommonModule,
@@ -41,6 +45,8 @@ import { AlertDialogComponent } from './alert-dialog/alert-dialog.component'
     RouterModule,
     FormsModule,
     ReactiveFormsModule,
+    NgxMaskModule.forChild(),
+    NgxDropzoneModule
   ],
   exports: [
     HeaderComponent,

@@ -12,6 +12,7 @@
     #input="ngModel"
     email="email"
     autocomplete="off"
+    [readonly]="readonly"
   />
   <div class="errorValidation" *ngIf="!input.value && input.touched">
     <mat-icon>info</mat-icon>

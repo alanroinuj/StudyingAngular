@@ -21,6 +21,7 @@ export class InputComponent implements ControlValueAccessor {
   @Input() type?: 'text' | 'password' | 'email' | 'date';
   @Input() control?: any;
   @Input() email?: boolean;
+  @Input() readonly: boolean;
 
   private innerValue: any;
   get value() {
