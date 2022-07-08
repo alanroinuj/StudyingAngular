@@ -1,3 +1,4 @@
+import { Observable, Subscriber } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
@@ -5,6 +6,8 @@ import { Employee } from 'src/app/utils/models/employee';
 import { SidebarService } from 'src/components/sidebar/sidebar.service';
 import { EmployeeService } from '../employee.service';
 import { DomSanitizer } from '@angular/platform-browser';
+import { MatDialog } from '@angular/material/dialog';
+import { UploadPhotoComponent } from 'src/components/upload-photo/upload-photo.component';
 
 @Component({
   selector: 'app-employee-edit',
@@ -16,9 +19,9 @@ export class EmployeeEditComponent implements OnInit {
   employee: Employee;
   isAddMode!: boolean;
   form: FormGroup;
-  fileSelected: Blob;
-  imageUrl: string;
-  base64: string;
+  isEditMode: boolean = true;
+
+  imgbase64: Observable<any>;
 
   id: number;
 
@@ -28,7 +31,8 @@ export class EmployeeEditComponent implements OnInit {
     private employeeService: EmployeeService,
     private router: Router,
     private routeActivated: ActivatedRoute,
-    private sant: DomSanitizer
+    private sant: DomSanitizer,
+    private dialog: MatDialog
     ) {
     this.sidebarService.titleHeader = {
       title: 'Cadastro de usuário',
@@ -49,15 +53,23 @@ export class EmployeeEditComponent implements OnInit {
     }
   }
 
+  openModal(){
+    this.dialog.open(UploadPhotoComponent, {
+      height: '250px',
+      width: '600px'
+    })
+  }
+
   createForm(employee: Employee) {
     this.form = this.formBuilder.group({
       id: [(employee.id)],
-      name: [(employee.name)],
+      name: [employee.name],
       department: [(employee.department)],
       phone: [(employee.phone)],
       active: [(employee.active)]
     })
   }
+
 
   onSubmit(){
     this.id = this.id = this.routeActivated.snapshot.params['id'];
@@ -83,19 +95,30 @@ export class EmployeeEditComponent implements OnInit {
     });
   }
 
-  inputFile(event: Event):void{
-    const target = event.target as HTMLInputElement;
-    const files = target.files as FileList;
-    this.fileSelected = files[0];
-    this.imageUrl = this.sant.bypassSecurityTrustUrl(window.URL.createObjectURL(this.fileSelected)) as string;
-
+  onChange(ev: Event){
+    const file = (ev.target as HTMLInputElement).files![0];
+    this.convertBaseTo64(file);
   }
 
-  convertBase64(){
-    let reader = new FileReader();
-    reader.readAsDataURL(this.fileSelected as Blob);
-    reader.onloadend = () => {
-      this.base64 = reader.result as string;
+  convertBaseTo64(file: File){
+    this.imgbase64 = new Observable((subscriber: Subscriber<any>) => {
+      this.readFile(file, subscriber);
+    });
+    this.imgbase64.subscribe((data) => {
+      console.log(data);
+    })
+  }
+
+  readFile(file: File, subscriber: Subscriber<any>){
+    const fileReader = new FileReader();
+    fileReader.readAsDataURL(file);
+    fileReader.onload = () => {
+      subscriber.next(fileReader.result);
+      subscriber.complete();
+    }
+    fileReader.onerror = (error) => {
+      subscriber.error(error);
+      subscriber.complete();
     }
   }
 }

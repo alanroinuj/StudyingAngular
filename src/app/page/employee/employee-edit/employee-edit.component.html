@@ -5,16 +5,17 @@
         name="active"
         formControlName="active"
       ></switch-component>
-    <input-component label="Nome" type="text" name="name" formControlName="name" errorMessage="O campo Nome é obrigatório!"></input-component>
+    <input-component label="Nome" type="text" name="name" formControlName="name" errorMessage="O campo Nome é obrigatório!" [readonly]="isEditMode"></input-component>
     <input-component label="Departamento" type="text" name="department" formControlName="department"></input-component>
-    <input-component label="Fone" type="text" name="phone" formControlName="phone"></input-component>
+    <input-component label="Fone" type="text" name="phone" formControlName="phone" matInput prefix="+7" mask="(000) 00000-0000"></input-component>
 
-    <div style="display: flex; flex-direction: column;">
-      <img [src]="imageUrl" alt="">
-      <input formControlName="photos" type="file" accept="image/*" (change)="inputFile($event)">
-      <textarea [innerHTML]="base64"></textarea>
-      <button (click)="convertBase64()">Converter</button>
+    <!--input type="file" (change)="onChange($event)"-->
+    <div *ngIf="imgbase64">
+      <img [src]="imgbase64 | async" alt="">
     </div>
+
+    <button (click)="openModal()">OPEN</button>
+
     <button (click)="onSubmit()">Salvar</button>
     <a href="#" class="btn btn-secondary mt-4 ml-2">Cancelar</a>
   </form>
